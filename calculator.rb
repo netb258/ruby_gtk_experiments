@@ -60,7 +60,7 @@ grid.set_property("column-homogeneous", true)
 #Create buttons:
 
 button_clear    = Gtk::Button.new(:label => "Clear all")
-button_cls    = Gtk::Button.new(:label => "Clear screen")
+button_cls      = Gtk::Button.new(:label => "Clear screen")
 
 button7         = Gtk::Button.new(:label => "7")
 button8         = Gtk::Button.new(:label => "8")
