@@ -128,29 +128,37 @@ button_clear.signal_connect("clicked") do
 end
 
 button_plus.signal_connect("clicked") do
-  #These comments apply to -, / and * as well
-  #Try to queued up + as the next operation
-  operator = "+" if operator == "" #Ensure that any previously queued up operation is not overriden by +
-  do_operation.call #Perform the next queued up operation
-  operator = "+" #Queued up + to be the next opperation
+  if should_clear_screen == false
+    #These comments apply to -, / and * as well
+    #Try to queued up + as the next operation
+    operator = "+" if operator == "" #Ensure that any previously queued up operation is not overriden by +
+    do_operation.call #Perform the next queued up operation
+    operator = "+" #Queued up + to be the next opperation
+  end
 end
 
 button_minus.signal_connect("clicked") do
-  operator = "-" if operator == ""
-  do_operation.call
-  operator = "-"
+  if should_clear_screen == false
+    operator = "-" if operator == ""
+    do_operation.call
+    operator = "-"
+  end
 end
 
 button_multiply.signal_connect("clicked") do
-  operator = "*" if operator == ""
-  do_operation.call
-  operator = "*"
+  if should_clear_screen == false
+    operator = "*" if operator == ""
+    do_operation.call
+    operator = "*"
+  end
 end
 
 button_divide.signal_connect("clicked") do
-  operator = "/" if operator == ""
-  do_operation.call
-  operator = "/"
+  if should_clear_screen == false
+    operator = "/" if operator == ""
+    do_operation.call
+    operator = "/"
+  end
 end
 
 button_dot.signal_connect("clicked") do
@@ -158,10 +166,12 @@ button_dot.signal_connect("clicked") do
 end
 
 button_equals.signal_connect("clicked") do
-  do_operation.call
-  operator = ""
-  accumulator1 = nil
-  accumulator2 = nil
+  if should_clear_screen == false
+    do_operation.call
+    operator = ""
+    accumulator1 = nil
+    accumulator2 = nil
+  end
 end
 
 for i in 0..9
